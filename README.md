@@ -1,2 +1,2 @@
 # Roll-a-ball_tutorial
-Unity Tutorials #1
+The game is for introvert people trying to keep it low under stress.
