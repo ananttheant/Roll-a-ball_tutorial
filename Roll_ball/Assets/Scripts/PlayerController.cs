@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
         // Preventing mobile devices going in to sleep mode 
         //(actual problem if only accelerometer input is used)
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 
     void FixedUpdate()
