@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody _player;
     private int _count;
+    private int _level;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
         _count = 0;
         SetCountText();
         WinText.text = "";
+        _level = 1;
     }
 
     void Update()
@@ -74,6 +76,12 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
             _count = _count + 1;
             SetCountText();
+        }
+        else if (other.gameObject.CompareTag("Level Up"))
+        {
+            other.gameObject.SetActive(false);
+            _level = _level + 1;
+            //Debug.Log("level: " +_level);
         }
     }
 
