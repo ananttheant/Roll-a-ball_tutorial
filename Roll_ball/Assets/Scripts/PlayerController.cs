@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
             {
                 // Player movement in mobile devices
                 // Building of force vector 
-                Vector3 movement = new Vector3(Input.acceleration.x, 0.0f, Input.acceleration.y);
+                Vector3 movement = new Vector3(Input.acceleration.x*2, 0.0f, Input.acceleration.y*2);
                 // Adding force to rigidbody
                 _player.AddForce(movement * Speed * Time.deltaTime);
             }
