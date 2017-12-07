@@ -47,23 +47,26 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (SystemInfo.deviceType == DeviceType.Desktop)
+       if (GameStates.isGrounded)
         {
-            float moveHorizontal = Input.GetAxis("Horizontal");
-            float moveVertical = Input.GetAxis("Vertical");
+            if (SystemInfo.deviceType == DeviceType.Desktop)
+            {
+                float moveHorizontal = Input.GetAxis("Horizontal");
+                float moveVertical = Input.GetAxis("Vertical");
 
-            Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
+                Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
 
 
-            _player.AddForce(movement * Speed * Time.deltaTime);
-        }
-        else
-        {
-            // Player movement in mobile devices
-            // Building of force vector 
-            Vector3 movement = new Vector3(Input.acceleration.x, 0.0f, Input.acceleration.y);
-            // Adding force to rigidbody
-            _player.AddForce(movement * Speed * Time.deltaTime);
+                _player.AddForce(movement * Speed * Time.deltaTime);
+            }
+            else
+            {
+                // Player movement in mobile devices
+                // Building of force vector 
+                Vector3 movement = new Vector3(Input.acceleration.x, 0.0f, Input.acceleration.y);
+                // Adding force to rigidbody
+                _player.AddForce(movement * Speed * Time.deltaTime);
+            }
         }
     }
 
