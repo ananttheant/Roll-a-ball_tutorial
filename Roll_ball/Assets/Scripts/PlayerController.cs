@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-        CountText.text = "Count: " + _pointCount.ToString();
+        CountText.text = "Points: " + _pointCount.ToString();
         /*if (_pointCount >= 16)
         {
             WinText.text = "You Win!";
