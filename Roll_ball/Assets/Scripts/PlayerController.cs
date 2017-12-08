@@ -8,13 +8,13 @@ public class PlayerController : MonoBehaviour
     public Text WinText;
 
     private Rigidbody _player;
-    private int _count;
+    private int _pointCount;
     private int _level;
 
     void Start()
     {
         _player = GetComponent<Rigidbody>();
-        _count = 0;
+        _pointCount = 0;
         SetCountText();
         WinText.text = "";
         _level = 1;
@@ -75,21 +75,30 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Pick Up"))
         {
             other.gameObject.SetActive(false);
-            _count = _count + 1;
+            _pointCount = _pointCount + 5;
+            SetCountText();
+        }
+        else if (other.gameObject.CompareTag("Pick Up 2"))
+        {
+            other.gameObject.SetActive(false);
+            //_level = _level + 10;
+            //Debug.Log("level: " +_level);
+            _pointCount = _pointCount + 10;
             SetCountText();
         }
         else if (other.gameObject.CompareTag("Level Up"))
         {
             other.gameObject.SetActive(false);
             _level = _level + 1;
-            //Debug.Log("level: " +_level);
+            Debug.Log("level: " + _level);
+            SetCountText();
         }
     }
 
     void SetCountText()
     {
-        CountText.text = "Count: " + _count.ToString();
-        /*if (_count >= 16)
+        CountText.text = "Count: " + _pointCount.ToString();
+        /*if (_pointCount >= 16)
         {
             WinText.text = "You Win!";
         }*/
