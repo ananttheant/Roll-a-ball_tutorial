@@ -1,5 +1,5 @@
 # Roll a ball
-The game is for introvert people trying to keep it low under stress.
+Unity's tutorial turned into andriod game to learn andriod environment.
 
 ## Genre
 Casual
